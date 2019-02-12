@@ -1,6 +1,6 @@
 ﻿namespace Gyak1
 {
-    partial class Form1
+    partial class Gyak1_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // Form1
+            // Gyak1_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(598, 454);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Gyak1_Form";
+            this.Text = "Első gyakorlat yaaay!";
+            this.Load += new System.EventHandler(this.Gyak1_Form_Load);
             this.ResumeLayout(false);
 
         }

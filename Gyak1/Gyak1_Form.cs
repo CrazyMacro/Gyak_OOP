@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Gyak1
 {
-    public partial class Form1 : Form
+    public partial class Gyak1_Form : Form
     {
-        public Form1()
+        public Gyak1_Form()
         {
             InitializeComponent();
+        }
+
+        private void Gyak1_Form_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
