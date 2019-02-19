@@ -24,6 +24,38 @@ namespace Gyak2
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
+            if (textBoxName.Text.Length != 0) {
+                if (!listBoxNames.Items.Contains(textBoxName.Text)) {
+                    listBoxNames.Items.Add(textBoxName.Text);
+                    textBoxName.Clear();
+                    textBoxName.Focus();
+                }
+                else
+                {
+                    labelItemExists.Visible = true;
+                    ;
+                    System.Threading.Thread.Sleep(1000);
+                    ;
+                    labelItemExists.Visible = false;
+                    textBoxName.Clear();
+                    textBoxName.Focus();
+                }
+
+            }
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            listBoxNames.Items.Remove(listBoxNames.SelectedItem);
+        }
+
+        private void textBoxName_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxName_KeyPress(object sender, KeyPressEventArgs e)
+        {
 
         }
     }

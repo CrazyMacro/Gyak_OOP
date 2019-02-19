@@ -33,6 +33,8 @@
             this.listBoxNames = new System.Windows.Forms.ListBox();
             this.labelTextBoxName = new System.Windows.Forms.Label();
             this.labelListBoxNames = new System.Windows.Forms.Label();
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.labelItemExists = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBoxName
@@ -41,6 +43,7 @@
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(459, 20);
             this.textBoxName.TabIndex = 0;
+            this.textBoxName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxName_KeyPress);
             // 
             // buttonAdd
             // 
@@ -78,11 +81,35 @@
             this.labelListBoxNames.TabIndex = 4;
             this.labelListBoxNames.Text = "Names so far:";
             // 
+            // buttonDelete
+            // 
+            this.buttonDelete.Location = new System.Drawing.Point(596, 424);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(75, 23);
+            this.buttonDelete.TabIndex = 5;
+            this.buttonDelete.Text = "Delete";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
+            // labelItemExists
+            // 
+            this.labelItemExists.AutoSize = true;
+            this.labelItemExists.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.labelItemExists.ForeColor = System.Drawing.Color.Crimson;
+            this.labelItemExists.Location = new System.Drawing.Point(12, 64);
+            this.labelItemExists.Name = "labelItemExists";
+            this.labelItemExists.Size = new System.Drawing.Size(136, 13);
+            this.labelItemExists.TabIndex = 6;
+            this.labelItemExists.Text = "This name is already added";
+            this.labelItemExists.Visible = false;
+            // 
             // MasodikForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(903, 511);
+            this.Controls.Add(this.labelItemExists);
+            this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.labelListBoxNames);
             this.Controls.Add(this.labelTextBoxName);
             this.Controls.Add(this.listBoxNames);
@@ -103,6 +130,8 @@
         private System.Windows.Forms.ListBox listBoxNames;
         private System.Windows.Forms.Label labelTextBoxName;
         private System.Windows.Forms.Label labelListBoxNames;
+        private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.Label labelItemExists;
     }
 }
 
