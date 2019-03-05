@@ -50,7 +50,7 @@
             this.listBoxSubjectsAvailable.FormattingEnabled = true;
             this.listBoxSubjectsAvailable.Location = new System.Drawing.Point(16, 86);
             this.listBoxSubjectsAvailable.Name = "listBoxSubjectsAvailable";
-            this.listBoxSubjectsAvailable.Size = new System.Drawing.Size(225, 134);
+            this.listBoxSubjectsAvailable.Size = new System.Drawing.Size(244, 134);
             this.listBoxSubjectsAvailable.TabIndex = 1;
             // 
             // labelSubjectAvailable
@@ -64,19 +64,20 @@
             // 
             // buttonTakeSubject
             // 
-            this.buttonTakeSubject.Location = new System.Drawing.Point(274, 141);
+            this.buttonTakeSubject.Location = new System.Drawing.Point(281, 142);
             this.buttonTakeSubject.Name = "buttonTakeSubject";
             this.buttonTakeSubject.Size = new System.Drawing.Size(74, 23);
             this.buttonTakeSubject.TabIndex = 3;
             this.buttonTakeSubject.Text = ">>";
             this.buttonTakeSubject.UseVisualStyleBackColor = true;
+            this.buttonTakeSubject.Click += new System.EventHandler(this.buttonTakeSubject_Click);
             // 
             // listBoxSubjectsTaken
             // 
             this.listBoxSubjectsTaken.FormattingEnabled = true;
-            this.listBoxSubjectsTaken.Location = new System.Drawing.Point(377, 86);
+            this.listBoxSubjectsTaken.Location = new System.Drawing.Point(376, 86);
             this.listBoxSubjectsTaken.Name = "listBoxSubjectsTaken";
-            this.listBoxSubjectsTaken.Size = new System.Drawing.Size(225, 134);
+            this.listBoxSubjectsTaken.Size = new System.Drawing.Size(244, 134);
             this.listBoxSubjectsTaken.TabIndex = 4;
             // 
             // labelSubjectsTaken
