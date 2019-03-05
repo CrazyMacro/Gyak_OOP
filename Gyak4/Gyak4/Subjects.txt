@@ -1,0 +1,15 @@
+﻿OOP
+Objektumorientált Programozás
+6
+OOT
+Objektumorionetált Tervezés
+6
+MATA
+Matematika Alapok
+4
+PROGAL
+Programizás Alapjai
+6
+PROGAL2
+Programozás ALapjai 2
+3
