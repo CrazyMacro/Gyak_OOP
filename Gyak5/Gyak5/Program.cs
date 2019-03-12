@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Gyak4
+namespace Gyak5
 {
     static class Program
     {
@@ -16,13 +16,7 @@ namespace Gyak4
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            LoginForm loginWindow = new LoginForm();
-            if (loginWindow.ShowDialog() == DialogResult.OK)
-            {
-                Application.Run(new Targyfelvetel());
-            }
-
+            Application.Run(new Form1());
         }
     }
 }

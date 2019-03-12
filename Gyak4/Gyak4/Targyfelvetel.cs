@@ -43,7 +43,10 @@ namespace Gyak4
 
         private void buttonTakeSubject_Click(object sender, EventArgs e)
         {
-            listBoxSubjectsTaken.Items.Add(listBoxSubjectsAvailable.SelectedItem);
+            if (listBoxSubjectsAvailable.SelectedItem != null){
+
+                listBoxSubjectsTaken.Items.Add(listBoxSubjectsAvailable.SelectedItem);
+            }
             subjectsTaken.Add(subjectsAvailable[listBoxSubjectsAvailable.SelectedIndex]);
 
         }
