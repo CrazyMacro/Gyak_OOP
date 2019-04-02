@@ -28,32 +28,53 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.OneOne = new System.Windows.Forms.TextBox();
+            this.components = new System.ComponentModel.Container();
+            this.sudokuBoardBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.textBoxasd = new System.Windows.Forms.TextBox[9,9];
+            ((System.ComponentModel.ISupportInitialize)(this.sudokuBoardBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
-            // OneOne
+            // textBoxasd
             // 
-            this.OneOne.Location = new System.Drawing.Point(499, 259);
-            this.OneOne.Name = "OneOne";
-            this.OneOne.Size = new System.Drawing.Size(20, 20);
-            this.OneOne.TabIndex = 0;
+            for(int i=0; i<9; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    this.textBoxasd[i, j] = new System.Windows.Forms.TextBox();
+                    this.textBoxasd[i,j].Location = new System.Drawing.Point(200+i * 30, 200+j * 30);
+                    this.textBoxasd[i,j].Name = "textBox" + i + j;
+                    this.textBoxasd[i,j].Size = new System.Drawing.Size(28, 28);
+                    this.textBoxasd[i,j].TabIndex = i*10 + j;
+                }
+            }
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(978, 593);
-            this.Controls.Add(this.OneOne);
+            for(int i = 0; i<9; i++)
+            {
+                for(int j = 0; j<9; j++)
+                {
+                    this.Controls.Add(this.textBoxasd[i,j]);
+                }
+            }
             this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.sudokuBoardBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox OneOne;
+        private System.Windows.Forms.BindingSource sudokuBoardBindingSource;
+        private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.TextBox[,] textBoxasd;
     }
 }
 
