@@ -16,5 +16,10 @@ namespace SudokuSolver
         {
             InitializeComponent();
         }
+
+        private void MegoldButton_Click(object sender, EventArgs e)
+        {
+            this.MegoldMeneteBtn.Visible = true;
+        }
     }
 }
