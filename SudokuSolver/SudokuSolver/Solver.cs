@@ -8,21 +8,10 @@ namespace SudokuSolver
 {
     class Solver
     {
-        internal Form1 mainForm;
-        HashSet<int> Possible = new HashSet<int>();
-        int[,] tomb = new int[9, 9]; 
-
-        public Solver(Form1 mainForm)
+        int[,] tomb = new int[9, 9];
+        public Solver(int[,] tomb)
         {
-            this.mainForm = mainForm;
-            for(int i=0; i<9; i++)
-            {
-                for(int j=0; j<9; j++)
-                {
-                    string s = "TB" + i + j;
-
-                }
-            }
+            this.tomb = tomb;
         }
 
         void PossibleNum(int toAdd)

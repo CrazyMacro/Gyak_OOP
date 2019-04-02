@@ -1187,13 +1187,13 @@
             // 
             // MegoldMeneteBtn
             // 
-            this.MegoldMeneteBtn.Visible = false;
             this.MegoldMeneteBtn.Location = new System.Drawing.Point(479, 353);
             this.MegoldMeneteBtn.Name = "MegoldMeneteBtn";
             this.MegoldMeneteBtn.Size = new System.Drawing.Size(85, 49);
             this.MegoldMeneteBtn.TabIndex = 2;
             this.MegoldMeneteBtn.Text = "Megoldas menete";
             this.MegoldMeneteBtn.UseVisualStyleBackColor = true;
+            this.MegoldMeneteBtn.Visible = false;
             // 
             // Form1
             // 
