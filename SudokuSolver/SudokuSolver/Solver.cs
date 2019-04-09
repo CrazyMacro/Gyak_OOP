@@ -94,7 +94,30 @@ namespace SudokuSolver
 
         bool checkCompleteRow(int n)
         {
-            
+            HashSet<int> set = new HashSet<int>();
+            for (int i = 0; i < 9; i++)
+            {
+                set.Add(tomb[i, n].Value);
+            }
+            if (set.Count == 9)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        bool checkCompleteColumn(int n)
+        {
+            HashSet<int> set = new HashSet<int>();
+            for(int i=0; i<9; i++)
+            {
+                set.Add(tomb[n, i].Value);
+            }
+            if (set.Count == 9)
+            {
+                return true;
+            }
+            return false;
         }
 
         bool checkValidArea(Cell n)
