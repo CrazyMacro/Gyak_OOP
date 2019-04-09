@@ -38,9 +38,16 @@ namespace SudokuSolver
             areas.Add("Area33", new Rectangle(6, 6, 3, 3));
         }
 
-        public String inArea(Cell actualCell)
+        public String inArea(int x, int y)
         {
-
+            Point currentPoint = new Point(x, y);
+            foreach (String AreaName in areas)
+            {
+                if (areas[AreaName].Contains(currentPoint)){
+                    return AreaName;
+                }
+                return null;
+            }
         }
 
         public List<Cell> getCellsInArea(String area)
@@ -48,7 +55,7 @@ namespace SudokuSolver
             List<Cell> returnList = new List<Cell>();
             for(int i=areas[area].X; i<areas[area].Right; i++)
             {
-                for (i = areas[area].Y; i < areas[area].Bottom; i++)
+                for (j = areas[area].Y; j < areas[area].Bottom; j++)
                 {
                     returnList.Add(tomb[i, j]);
                 }
