@@ -19,7 +19,7 @@ namespace SudokuSolver
             {
                 for(int j=0; j<9; j++)
                 {
-                    this.tomb[i,j] = new Cell(tomb[i, j]);
+                    this.tomb[i,j] = new Cell(tomb[i, j], i, j);
                 }
             }
             fillAreas();
@@ -68,14 +68,33 @@ namespace SudokuSolver
 
         }
 
-        bool checkRow(int n)
+        bool checkValidRow(Cell c)
         {
-            
+            for(int i=0; i<9; i++)
+            {
+                if (tomb[i, c.Y].Value == c.Value)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
-        bool checkColumn(int n)
+        bool checkValidColumn(Cell c)
         {
+            for(int i=0; i<9; i++)
+            {
+                if(tomb[c.X, i].Value == c.Value)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
 
+        bool checkCompleteRow(int n)
+        {
+            
         }
     }
 }
