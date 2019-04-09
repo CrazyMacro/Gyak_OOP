@@ -53,9 +53,9 @@ namespace SudokuSolver
         public List<Cell> getCellsInArea(String area)
         {
             List<Cell> returnList = new List<Cell>();
-            for(int i=areas[area].X; i<areas[area].Right; i++)
+            for(int i = areas[area].X; i<areas[area].Right; i++)
             {
-                for (j = areas[area].Y; j < areas[area].Bottom; j++)
+                for (int j = areas[area].Y; j < areas[area].Bottom; j++)
                 {
                     returnList.Add(tomb[i, j]);
                 }
@@ -96,5 +96,20 @@ namespace SudokuSolver
         {
             
         }
+
+        bool checkValidArea(Cell n)
+        {
+            String currentArea;
+           currentArea = inArea(n.X, n.Y);
+            List<Cell> cellsInArea = getCellsInArea(currentArea);
+            foreach(Cell cell in cellsInArea)
+            {
+                if(cell.value == n.value)
+                {
+                    return false;
+                }
+                return true;
+            }
+        } 
     }
 }
