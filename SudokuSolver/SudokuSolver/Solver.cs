@@ -166,7 +166,21 @@ namespace SudokuSolver
 
         bool checkCompleteSudoku()
         {
-
+            foreach (String area in areas)
+            {
+                if (!checkCompleteArea(area))
+                {
+                    return false;
+                }
+            }
+            for (int i = 0; i < 9; i++)
+            {
+                if(checkCompleteColumn(i) && checkCompleteRow(i))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
