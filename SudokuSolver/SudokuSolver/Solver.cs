@@ -22,10 +22,10 @@ namespace SudokuSolver
                     this.tomb[i, j] = new Cell(tomb[i, j], i, j);
                 }
             }
-            fillAreas();
+            FillAreas();
         }
 
-        public void fillAreas()
+        public void FillAreas()
         {
             areas.Add("Area11", new Rectangle(0, 0, 3, 3));
             areas.Add("Area12", new Rectangle(0, 3, 3, 3));
@@ -38,19 +38,19 @@ namespace SudokuSolver
             areas.Add("Area33", new Rectangle(6, 6, 3, 3));
         }
 
-        public String inArea(int x, int y)
+        public String InArea(int x, int y)
         {
             Point currentPoint = new Point(x, y);
-            foreach (String AreaName in areas)
+            foreach (String AreaName in areas.Keys)
             {
                 if (areas[AreaName].Contains(currentPoint)) {
                     return AreaName;
                 }
-                return null;
             }
+            return null;
         }
 
-        public List<Cell> getCellsInArea(String area)
+        public List<Cell> GetCellsInArea(String area)
         {
             List<Cell> returnList = new List<Cell>();
             for (int i = areas[area].X; i < areas[area].Right; i++)
@@ -68,7 +68,7 @@ namespace SudokuSolver
 
         }
 
-        bool checkValidRow(Cell c)
+        bool CheckValidRow(Cell c)
         {
             for (int i = 0; i < 9; i++)
             {
@@ -80,7 +80,7 @@ namespace SudokuSolver
             return true;
         }
 
-        bool checkValidColumn(Cell c)
+        bool CheckValidColumn(Cell c)
         {
             for (int i = 0; i < 9; i++)
             {
@@ -92,7 +92,7 @@ namespace SudokuSolver
             return true;
         }
 
-        bool checkCompleteRow(int n)
+        bool CheckCompleteRow(int n)
         {
             HashSet<int> set = new HashSet<int>();
             for (int i = 0; i < 9; i++)
@@ -106,7 +106,7 @@ namespace SudokuSolver
             return false;
         }
 
-        bool checkCompleteColumn(int n)
+        bool CheckCompleteColumn(int n)
         {
             HashSet<int> set = new HashSet<int>();
             for(int i=0; i<9; i++)
@@ -120,11 +120,11 @@ namespace SudokuSolver
             return false;
         }
 
-        bool checkValidArea(Cell n)
+        bool CheckValidArea(Cell n)
         {
             String currentArea;
-            currentArea = inArea(n.X, n.Y);
-            List<Cell> cellsInArea = getCellsInArea(currentArea);
+            currentArea = InArea(n.X, n.Y);
+            List<Cell> cellsInArea = GetCellsInArea(currentArea);
             foreach (Cell cell in cellsInArea)
             {
                 if(cell.Value == n.Value)
@@ -135,9 +135,9 @@ namespace SudokuSolver
             return true;
         }
 
-        bool checkCompleteArea(String area)
+        bool CheckCompleteArea(String area)
         {
-            List<Cell> cellsInArea = getCellsInArea(area);
+            List<Cell> cellsInArea = GetCellsInArea(area);
             HashSet<int> set = new HashSet<int>();
             foreach (Cell currentCell in cellsInArea)
             {
@@ -150,32 +150,30 @@ namespace SudokuSolver
             return false;
         }
 
-        bool checkValidSudoku()
+        bool CheckValidSudoku()
         {
             foreach(Cell cell in tomb)
             {
-                String currentArea;
-                currentArea = inArea(cell.X,cell.Y);
-                if (checkValidColumn(cell) && checkValidRow(cell) && checkValidArea(currentArea))
+                if (CheckValidColumn(cell) && CheckValidRow(cell) && CheckValidArea(cell))
                 {
                     return true;
                 }
-                return false;
             }
+            return false;
         }
 
-        bool checkCompleteSudoku()
+        bool CheckCompleteSudoku()
         {
-            foreach (String area in areas)
+            foreach (String area in areas.Keys)
             {
-                if (!checkCompleteArea(area))
+                if (!CheckCompleteArea(area))
                 {
                     return false;
                 }
             }
             for (int i = 0; i < 9; i++)
             {
-                if(checkCompleteColumn(i) && checkCompleteRow(i))
+                if(CheckCompleteColumn(i) && CheckCompleteRow(i))
                 {
                     return true;
                 }

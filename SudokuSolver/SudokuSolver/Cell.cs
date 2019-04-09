@@ -23,12 +23,12 @@ namespace SudokuSolver
             this.y = y;
         }
 
-        public int getPossibleLength()
+        public int GetPossibleLength()
         {
             return possibleNums.Count;
         }
 
-        public void addPossibleNum(int toAdd)
+        public void AddPossibleNum(int toAdd)
         {
             if (toAdd > 0 && toAdd < 10)
             {
@@ -36,20 +36,20 @@ namespace SudokuSolver
             }
         }
 
-        public void removePossibleNum(int toRemove)
+        public void RemovePossibleNum(int toRemove)
         {
             possibleNums.Remove(toRemove);
         }
 
-        public void setResult()
+        public void SetResult()
         {
-            if (getPossibleLength() == 1)
+            if (GetPossibleLength() == 1)
             {
                 value = possibleNums.Single();
             }
         }
 
-        public int setMin()
+        public int SetMin()
         {
             value = possibleNums.Min();
             return value;
