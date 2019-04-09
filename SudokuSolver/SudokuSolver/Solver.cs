@@ -81,7 +81,7 @@ namespace SudokuSolver
         bool checkValidArea(Cell n)
         {
             String currentArea;
-           currentArea = inArea(n.X, n.Y);
+            currentArea = inArea(n.X, n.Y);
             List<Cell> cellsInArea = getCellsInArea(currentArea);
             foreach(Cell cell in cellsInArea)
             {
@@ -89,8 +89,23 @@ namespace SudokuSolver
                 {
                     return false;
                 }
+            }
+            return true;
+        }
+
+        bool checkCompleteArea(String area)
+        {
+            List<Cell> cellsInArea = getCellsInArea(area);
+            HashSet<int> set = new HashSet<int>();
+            foreach (Cell currentCell in cellsInArea)
+            {
+                set.Add(currentCell.value);
+            }
+            if(set.Count == 9)
+            {
                 return true;
             }
-        } 
+            return false;
+        }
     }
 }
