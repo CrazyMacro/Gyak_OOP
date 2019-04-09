@@ -9,14 +9,20 @@ namespace SudokuSolver
 {
     class Solver
     {
-        int[,] tomb = new int[9, 9];
+        Cell[,] tomb = new Cell[9, 9];
         Dictionary<String, Rectangle> areas = new Dictionary<string, Rectangle>();
 
 
         public Solver(int[,] tomb)
         {
-            this.tomb = tomb;
-            fillAreas();
+            for(int i=0; i<9; i++)
+            {
+                for(int j=0; j<9; j++)
+                {
+                    Cell c = new Cell();
+                    
+                }
+            }
         }
 
         public void fillAreas()

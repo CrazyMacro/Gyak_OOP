@@ -25,8 +25,9 @@ namespace SudokuSolver
             {
                 for (int j = 0; j < 9; j++)
                 {
-                    string s = "TB" + i.ToString() + j.ToString();
-                    TextBox tb = (TextBox)this.Controls[s];
+                    string nev = "TB" + i.ToString() + j.ToString();
+                    TextBox tb = (TextBox)this.Controls[nev];
+                    tomb[i, j] = Convert.ToInt32(tb.Text);
                 }
             }
             Solver s = new Solver(tomb);
