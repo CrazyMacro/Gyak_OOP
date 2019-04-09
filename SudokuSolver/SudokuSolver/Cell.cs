@@ -8,9 +8,15 @@ namespace SudokuSolver
 {
     class Cell
     {
+
         private int value = 0;
         private HashSet<int> possibleNums;
         public int Value { get => value;}
+
+        public Cell(int value)
+        {
+            this.value = value;
+        }
 
         public int getPossibleLength()
         {
