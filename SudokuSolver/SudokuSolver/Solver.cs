@@ -94,7 +94,30 @@ namespace SudokuSolver
 
         bool checkCompleteRow(int n)
         {
+            HashSet<int> set = new HashSet<int>();
+            for (int i = 0; i < 9; i++)
+            {
+                set.Add(tomb[i, n].Value);
+            }
+            if (set.Count == 9)
+            {
+                return true;
+            }
+            return false;
+        }
 
+        bool checkCompleteColumn(int n)
+        {
+            HashSet<int> set = new HashSet<int>();
+            for(int i=0; i<9; i++)
+            {
+                set.Add(tomb[n, i].Value);
+            }
+            if (set.Count == 9)
+            {
+                return true;
+            }
+            return false;
         }
 
         bool checkValidArea(Cell n)
@@ -104,7 +127,7 @@ namespace SudokuSolver
             List<Cell> cellsInArea = getCellsInArea(currentArea);
             foreach (Cell cell in cellsInArea)
             {
-                if (cell.value == n.value)
+                if(cell.Value == n.Value)
                 {
                     return false;
                 }
@@ -118,7 +141,7 @@ namespace SudokuSolver
             HashSet<int> set = new HashSet<int>();
             foreach (Cell currentCell in cellsInArea)
             {
-                set.Add(currentCell.value);
+                set.Add(currentCell.Value);
             }
             if (set.Count == 9)
             {
