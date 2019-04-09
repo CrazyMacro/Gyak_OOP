@@ -15,11 +15,11 @@ namespace SudokuSolver
 
         public Solver(int[,] tomb)
         {
-            for(int i=0; i<9; i++)
+            for (int i = 0; i < 9; i++)
             {
-                for(int j=0; j<9; j++)
+                for (int j = 0; j < 9; j++)
                 {
-                    this.tomb[i,j] = new Cell(tomb[i, j], i, j);
+                    this.tomb[i, j] = new Cell(tomb[i, j], i, j);
                 }
             }
             fillAreas();
@@ -43,7 +43,7 @@ namespace SudokuSolver
             Point currentPoint = new Point(x, y);
             foreach (String AreaName in areas)
             {
-                if (areas[AreaName].Contains(currentPoint)){
+                if (areas[AreaName].Contains(currentPoint)) {
                     return AreaName;
                 }
                 return null;
@@ -53,7 +53,7 @@ namespace SudokuSolver
         public List<Cell> getCellsInArea(String area)
         {
             List<Cell> returnList = new List<Cell>();
-            for(int i = areas[area].X; i<areas[area].Right; i++)
+            for (int i = areas[area].X; i < areas[area].Right; i++)
             {
                 for (int j = areas[area].Y; j < areas[area].Bottom; j++)
                 {
@@ -70,7 +70,7 @@ namespace SudokuSolver
 
         bool checkValidRow(Cell c)
         {
-            for(int i=0; i<9; i++)
+            for (int i = 0; i < 9; i++)
             {
                 if (tomb[i, c.Y].Value == c.Value)
                 {
@@ -82,9 +82,9 @@ namespace SudokuSolver
 
         bool checkValidColumn(Cell c)
         {
-            for(int i=0; i<9; i++)
+            for (int i = 0; i < 9; i++)
             {
-                if(tomb[c.X, i].Value == c.Value)
+                if (tomb[c.X, i].Value == c.Value)
                 {
                     return false;
                 }
@@ -94,7 +94,7 @@ namespace SudokuSolver
 
         bool checkCompleteRow(int n)
         {
-            
+
         }
 
         bool checkValidArea(Cell n)
@@ -102,9 +102,9 @@ namespace SudokuSolver
             String currentArea;
             currentArea = inArea(n.X, n.Y);
             List<Cell> cellsInArea = getCellsInArea(currentArea);
-            foreach(Cell cell in cellsInArea)
+            foreach (Cell cell in cellsInArea)
             {
-                if(cell.value == n.value)
+                if (cell.value == n.value)
                 {
                     return false;
                 }
@@ -120,11 +120,30 @@ namespace SudokuSolver
             {
                 set.Add(currentCell.value);
             }
-            if(set.Count == 9)
+            if (set.Count == 9)
             {
                 return true;
             }
             return false;
+        }
+
+        bool checkValidSudoku()
+        {
+            foreach(Cell cell in tomb)
+            {
+                String currentArea;
+                currentArea = inArea(cell.X,cell.Y);
+                if (checkValidColumn(cell) && checkValidRow(cell) && checkValidArea(currentArea))
+                {
+                    return true;
+                }
+                return false;
+            }
+        }
+
+        bool checkCompleteSudoku()
+        {
+
         }
     }
 }
