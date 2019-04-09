@@ -127,7 +127,7 @@ namespace SudokuSolver
             List<Cell> cellsInArea = getCellsInArea(currentArea);
             foreach(Cell cell in cellsInArea)
             {
-                if(cell.value == n.value)
+                if(cell.Value == n.Value)
                 {
                     return false;
                 }
@@ -141,7 +141,7 @@ namespace SudokuSolver
             HashSet<int> set = new HashSet<int>();
             foreach (Cell currentCell in cellsInArea)
             {
-                set.Add(currentCell.value);
+                set.Add(currentCell.Value);
             }
             if(set.Count == 9)
             {
