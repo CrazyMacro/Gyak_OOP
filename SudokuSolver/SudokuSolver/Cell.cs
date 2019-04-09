@@ -12,10 +12,15 @@ namespace SudokuSolver
         private int value = 0;
         private HashSet<int> possibleNums;
         public int Value { get => value;}
+        public int X { get => x; set => x = value; }
+        public int Y { get => y; set => y = value; }
+        private int x, y;
 
-        public Cell(int value)
+        public Cell(int value, int x, int y)
         {
             this.value = value;
+            this.x = x;
+            this.y = y;
         }
 
         public int getPossibleLength()
