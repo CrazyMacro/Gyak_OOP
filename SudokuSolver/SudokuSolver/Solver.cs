@@ -19,10 +19,10 @@ namespace SudokuSolver
             {
                 for(int j=0; j<9; j++)
                 {
-                    Cell c = new Cell();
-                    
+                    this.tomb[i,j] = new Cell(tomb[i, j]);
                 }
             }
+            fillAreas();
         }
 
         public void fillAreas()
@@ -61,6 +61,21 @@ namespace SudokuSolver
                 }
             }
             return returnList;
+        }
+
+        void Solve()
+        {
+
+        }
+
+        bool checkRow(int n)
+        {
+            
+        }
+
+        bool checkColumn(int n)
+        {
+
         }
     }
 }
