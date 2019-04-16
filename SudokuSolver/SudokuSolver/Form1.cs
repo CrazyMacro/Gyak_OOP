@@ -32,5 +32,23 @@ namespace SudokuSolver
             }
             Solver s = new Solver(tomb);
         }
+
+        private void TB_TextChanged(object sender, EventArgs e)
+        {
+
+            TextBox tb = (TextBox)sender;
+            string s = tb.Name;
+            int x = Convert.ToInt32(s[2]);
+            int y = Convert.ToInt32(s[3]);
+            Cell c = new Cell(Convert.ToInt32(tb.Text), x, y);
+            if (AddCell(c))
+            {
+                this.LBnemlehet.Visible = false;
+            }
+            else
+            {
+                this.LBnemlehet.Visible = true;
+            }
+        }
     }
 }

@@ -12,7 +12,6 @@ namespace SudokuSolver
         Cell[,] tomb = new Cell[9, 9];
         Dictionary<String, Rectangle> areas = new Dictionary<string, Rectangle>();
 
-
         public Solver(int[,] tomb)
         {
             for (int i = 0; i < 9; i++)
