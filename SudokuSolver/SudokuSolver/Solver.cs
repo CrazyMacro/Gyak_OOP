@@ -12,6 +12,9 @@ namespace SudokuSolver
         Cell[,] tomb = new Cell[9, 9];
         Dictionary<String, Rectangle> areas = new Dictionary<string, Rectangle>();
 
+        public Solver()
+        {
+        }
 
         public Solver(int[,] tomb)
         {
@@ -23,6 +26,18 @@ namespace SudokuSolver
                 }
             }
             FillAreas();
+        }
+
+        public bool AddCell(Cell cellToAdd)
+        {
+            Cell tmpCell = tomb[cellToAdd.X, cellToAdd.Y];
+            tomb[cellToAdd.X, cellToAdd.Y] = cellToAdd;
+            if (CheckValidSudoku())
+            {
+                return true;
+            }
+            tomb[cellToAdd.X, cellToAdd.Y] = tmpCell;
+            return false;
         }
 
         public void FillAreas()
