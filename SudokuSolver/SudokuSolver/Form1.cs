@@ -19,7 +19,7 @@ namespace SudokuSolver
 
         private void MegoldButton_Click(object sender, EventArgs e)
         {
-            this.MegoldMeneteBtn.Visible = true;
+            /*this.MegoldMeneteBtn.Visible = true;
             int[,] tomb = new int[9, 9];
             for (int i = 0; i < 9; i++)
             {
@@ -30,7 +30,7 @@ namespace SudokuSolver
                     tomb[i, j] = Convert.ToInt32(tb.Text);
                 }
             }
-            Solver s = new Solver(tomb);
+            Solver s = new Solver(tomb);*/
         }
 
         private void TB_TextChanged(object sender, EventArgs e)
@@ -41,7 +41,7 @@ namespace SudokuSolver
             int x = Convert.ToInt32(s[2]);
             int y = Convert.ToInt32(s[3]);
             Cell c = new Cell(Convert.ToInt32(tb.Text), x, y);
-            if (AddCell(c))
+            if (solver.AddCell(c))
             {
                 this.LBnemlehet.Visible = false;
             }
