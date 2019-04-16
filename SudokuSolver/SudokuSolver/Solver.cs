@@ -9,11 +9,13 @@ namespace SudokuSolver
 {
     class Solver
     {
-        Cell[,] tomb = new Cell[9, 9];
-        Dictionary<String, Rectangle> areas = new Dictionary<string, Rectangle>();
+        Cell[,] tomb;
+        Dictionary<String, Rectangle> areas;
 
         public Solver()
         {
+            tomb = new Cell[9, 9];
+            areas = new Dictionary<string, Rectangle>();
         }
 
         public Solver(int[,] tomb)

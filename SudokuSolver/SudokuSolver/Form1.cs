@@ -17,7 +17,7 @@ namespace SudokuSolver
         {
             InitializeComponent();
             //Solver class
-            Solver solver = new Solver();
+            solver = new Solver();
         }
 
         private void MegoldButton_Click(object sender, EventArgs e)

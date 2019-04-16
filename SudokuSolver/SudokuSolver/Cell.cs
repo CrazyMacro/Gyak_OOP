@@ -21,6 +21,7 @@ namespace SudokuSolver
             this.value = value;
             this.x = x;
             this.y = y;
+            possibleNums = new HashSet<int>();
         }
 
         public int GetPossibleLength()
