@@ -1306,10 +1306,6 @@
             this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
-            //Solver class
-            Solver solver = new Solver();
-
         }
 
         #endregion
@@ -1399,7 +1395,6 @@
         private System.Windows.Forms.Button MegoldBtn;
         private System.Windows.Forms.Button MegoldMeneteBtn;
         private System.Windows.Forms.Label LBnemlehet;
-        private Solver solver;
     }
 }
 

@@ -12,25 +12,17 @@ namespace SudokuSolver
 {
     public partial class Form1 : Form
     {
+        Solver solver;
         public Form1()
         {
             InitializeComponent();
+            //Solver class
+            Solver solver = new Solver();
         }
 
         private void MegoldButton_Click(object sender, EventArgs e)
         {
-            /*this.MegoldMeneteBtn.Visible = true;
-            int[,] tomb = new int[9, 9];
-            for (int i = 0; i < 9; i++)
-            {
-                for (int j = 0; j < 9; j++)
-                {
-                    string nev = "TB" + i.ToString() + j.ToString();
-                    TextBox tb = (TextBox)this.Controls[nev];
-                    tomb[i, j] = Convert.ToInt32(tb.Text);
-                }
-            }
-            Solver s = new Solver(tomb);*/
+            solver.Solve();
         }
 
         private void TB_TextChanged(object sender, EventArgs e)

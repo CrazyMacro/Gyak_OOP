@@ -78,7 +78,7 @@ namespace SudokuSolver
             return returnList;
         }
 
-        void Solve()
+        public void Solve()
         {
 
         }
