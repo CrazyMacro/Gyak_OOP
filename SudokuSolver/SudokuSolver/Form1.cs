@@ -30,8 +30,9 @@ namespace SudokuSolver
 
             TextBox tb = (TextBox)sender;
             string s = tb.Name;
-            int x = Convert.ToInt32(s[2]);
-            int y = Convert.ToInt32(s[3]);
+            int x = Convert.ToInt32(s.Substring(2,1));
+            int y = Convert.ToInt32(s.Substring(3,1));
+            Console.WriteLine(tb.Text + "," + x + ", " + y + ", " +tb.Name);
             Cell c = new Cell(Convert.ToInt32(tb.Text), x, y);
             if (solver.AddCell(c))
             {
