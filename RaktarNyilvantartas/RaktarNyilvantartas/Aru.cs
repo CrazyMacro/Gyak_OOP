@@ -62,5 +62,11 @@ namespace RaktarNyilvantartas
                 ar = value;
             }
         }
+
+        
+        public override String ToString()
+        {
+            return nev + "\t" + azon + "\t" + ar;
+        }
     }
 }
