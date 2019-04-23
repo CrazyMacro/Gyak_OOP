@@ -15,18 +15,14 @@ namespace SudokuSolver
         public Solver()
         {
             tomb = new Cell[9, 9];
-            areas = new Dictionary<string, Rectangle>();
-        }
-
-        public Solver(int[,] tomb)
-        {
             for (int i = 0; i < 9; i++)
             {
                 for (int j = 0; j < 9; j++)
                 {
-                    this.tomb[i, j] = new Cell(tomb[i, j], i, j);
+                    this.tomb[i, j] = new Cell(0, i, j);
                 }
             }
+            areas = new Dictionary<string, Rectangle>();
             FillAreas();
         }
 
