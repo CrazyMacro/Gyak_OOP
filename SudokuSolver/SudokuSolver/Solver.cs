@@ -99,7 +99,7 @@ namespace SudokuSolver
                         {
                             current.Value = current.PossibleNums.Single();
                             added = current.PossibleNums.Single();
-                            valueAddedRowColumnArea(added, i, j);
+                            valueAdded(tomb[i, j]);
                         }
                     }
                 }
@@ -238,24 +238,6 @@ namespace SudokuSolver
             foreach(Cell current in currentArea)
             {
                 current.RemovePossibleNum(c.Value);
-            }
-        }
-
-        void valueAddedRowColumnArea(int n, int x, int y)
-        {
-            for(int i=0; i<9; i++)
-            {
-                for(int j=0; j<9; j++)
-                {
-                    if(i == x && j == y)
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        valueAdded(tomb[x, y]);
-                    }
-                }
             }
         }
     }

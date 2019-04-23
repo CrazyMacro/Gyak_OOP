@@ -41,7 +41,10 @@ namespace SudokuSolver
 
         public void RemovePossibleNum(int toRemove)
         {
-            PossibleNums.Remove(toRemove);
+            if (this.possibleNums.Contains(toRemove))
+            {
+                PossibleNums.Remove(toRemove);
+            }
         }
 
         public void SetResult()
