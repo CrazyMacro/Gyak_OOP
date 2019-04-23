@@ -56,7 +56,8 @@ namespace SudokuSolver
             Point currentPoint = new Point(x, y);
             foreach (String AreaName in areas.Keys)
             {
-                if (areas[AreaName].Contains(currentPoint)) {
+                if (areas[AreaName].Contains(currentPoint))
+                {
                     return AreaName;
                 }
             }
@@ -85,9 +86,12 @@ namespace SudokuSolver
         {
             for (int i = 0; i < 9; i++)
             {
-                if (tomb[i, c.Y].Value == c.Value)
+                if (i != c.X)
                 {
-                    return false;
+                    if (tomb[i, c.Y].Value == c.Value && tomb[i, c.Y].Value != 0 && c.Value != 0)
+                    {
+                        return false;
+                    }
                 }
             }
             return true;
@@ -97,9 +101,12 @@ namespace SudokuSolver
         {
             for (int i = 0; i < 9; i++)
             {
-                if (tomb[c.X, i].Value == c.Value)
+                if (i != c.Y)
                 {
-                    return false;
+                    if (tomb[c.X, i].Value == c.Value && tomb[c.X, i].Value != 0 && c.Value != 0)
+                    {
+                        return false;
+                    }
                 }
             }
             return true;
@@ -122,7 +129,7 @@ namespace SudokuSolver
         bool CheckCompleteColumn(int n)
         {
             HashSet<int> set = new HashSet<int>();
-            for(int i=0; i<9; i++)
+            for (int i = 0; i < 9; i++)
             {
                 set.Add(tomb[n, i].Value);
             }
@@ -133,16 +140,18 @@ namespace SudokuSolver
             return false;
         }
 
-        bool CheckValidArea(Cell n)
+        bool CheckValidArea(Cell cell)
         {
             String currentArea;
-            currentArea = InArea(n.X, n.Y);
+            currentArea = InArea(cell.X, cell.Y);
             List<Cell> cellsInArea = GetCellsInArea(currentArea);
-            foreach (Cell cell in cellsInArea)
+            foreach (Cell tmpCell in cellsInArea)
             {
-                if(cell.Value == n.Value)
-                {
-                    return false;
+                if (cell.X != tmpCell.X && cell.Y != tmpCell.Y) {
+                    if (tmpCell.Value == cell.Value && tmpCell.Value != 0 && cell.Value != 0)
+                    {
+                        return false;
+                    }
                 }
             }
             return true;
@@ -165,14 +174,14 @@ namespace SudokuSolver
 
         bool CheckValidSudoku()
         {
-            foreach(Cell cell in tomb)
+            foreach (Cell cell in tomb)
             {
-                if (CheckValidColumn(cell) && CheckValidRow(cell) && CheckValidArea(cell))
+                if (!CheckValidColumn(cell) || !CheckValidRow(cell) || !CheckValidArea(cell))
                 {
-                    return true;
+                    return false;
                 }
             }
-            return false;
+            return true;
         }
 
         bool CheckCompleteSudoku()
@@ -186,7 +195,7 @@ namespace SudokuSolver
             }
             for (int i = 0; i < 9; i++)
             {
-                if(CheckCompleteColumn(i) && CheckCompleteRow(i))
+                if (CheckCompleteColumn(i) && CheckCompleteRow(i))
                 {
                     return true;
                 }
