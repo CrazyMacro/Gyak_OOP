@@ -79,6 +79,14 @@ namespace SudokuSolver
 
         public void Solve()
         {
+            foreach (Cell tmpCell in tomb)
+            {
+                if (tmpCell.Value != 0)
+                {
+                    valueAdded(tmpCell);
+                }
+            }
+
             while (!CheckCompleteSudoku())
             {
                 for (int i = 0; i < 9; i++)
