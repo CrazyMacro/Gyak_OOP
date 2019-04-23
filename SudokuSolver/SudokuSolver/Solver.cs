@@ -211,12 +211,12 @@ namespace SudokuSolver
             }
             for (int i = 0; i < 9; i++)
             {
-                if (CheckCompleteColumn(i) && CheckCompleteRow(i))
+                if (!CheckCompleteColumn(i) || !CheckCompleteRow(i))
                 {
-                    return true;
+                    return false;
                 }
             }
-            return false;
+            return true;
         }
 
         void valueAdded(Cell c)
