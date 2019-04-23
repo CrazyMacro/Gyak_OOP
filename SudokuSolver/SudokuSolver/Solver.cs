@@ -79,7 +79,23 @@ namespace SudokuSolver
 
         public void Solve()
         {
-
+            while (!CheckCompleteSudoku())
+            {
+                for (int i = 0; i < 9; i++)
+                {
+                    for(int j = 0; j<9; j++)
+                    {
+                        Cell current = tomb[i, j];
+                        int added = 0;
+                        if (current.GetPossibleLength() == 1)
+                        {
+                            current.Value = current.PossibleNums.Single();
+                            added = current.PossibleNums.Single();
+                            valueAddedRowColumnArea(added, i, j);
+                        }
+                    }
+                }
+            }
         }
 
         bool CheckValidRow(Cell c)
@@ -201,6 +217,38 @@ namespace SudokuSolver
                 }
             }
             return false;
+        }
+
+        void valueAdded(Cell c)
+        {
+            for(int i=0; i<9; i++)
+            {
+                tomb[c.X, i].RemovePossibleNum(c.Value);
+                tomb[i, c.Y].RemovePossibleNum(c.Value);
+            }
+            List<Cell> currentArea = GetCellsInArea(InArea(c.X, c.Y));
+            foreach(Cell current in currentArea)
+            {
+                current.RemovePossibleNum(c.Value);
+            }
+        }
+
+        void valueAddedRowColumnArea(int n, int x, int y)
+        {
+            for(int i=0; i<9; i++)
+            {
+                for(int j=0; j<9; j++)
+                {
+                    if(i == x && j == y)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        valueAdded(tomb[x, y]);
+                    }
+                }
+            }
         }
     }
 }

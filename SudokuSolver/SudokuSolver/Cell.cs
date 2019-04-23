@@ -11,9 +11,11 @@ namespace SudokuSolver
 
         private int value = 0;
         private HashSet<int> possibleNums;
-        public int Value { get => value;}
+        public int Value { get => value; set => Value = value; }
         public int X { get => x; set => x = value; }
         public int Y { get => y; set => y = value; }
+        public HashSet<int> PossibleNums { get => possibleNums; set => possibleNums = value; }
+
         private int x, y;
 
         public Cell(int value, int x, int y)
@@ -21,38 +23,38 @@ namespace SudokuSolver
             this.value = value;
             this.x = x;
             this.y = y;
-            possibleNums = new HashSet<int>();
+            PossibleNums = new HashSet<int>();
         }
 
         public int GetPossibleLength()
         {
-            return possibleNums.Count;
+            return PossibleNums.Count;
         }
 
         public void AddPossibleNum(int toAdd)
         {
             if (toAdd > 0 && toAdd < 10)
             {
-                possibleNums.Add(toAdd);
+                PossibleNums.Add(toAdd);
             }
         }
 
         public void RemovePossibleNum(int toRemove)
         {
-            possibleNums.Remove(toRemove);
+            PossibleNums.Remove(toRemove);
         }
 
         public void SetResult()
         {
             if (GetPossibleLength() == 1)
             {
-                value = possibleNums.Single();
+                value = PossibleNums.Single();
             }
         }
 
         public int SetMin()
         {
-            value = possibleNums.Min();
+            value = PossibleNums.Min();
             return value;
         }
     }
