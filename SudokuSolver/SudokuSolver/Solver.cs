@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace SudokuSolver
 {
@@ -79,13 +80,17 @@ namespace SudokuSolver
 
         public void Solve()
         {
+            StreamWriter output = new StreamWriter("csolve.csv", false);
             foreach (Cell tmpCell in tomb)
             {
                 if (tmpCell.Value != 0)
                 {
                     valueAdded(tmpCell);
+                    output.WriteLine(tmpCell.X + ";" + tmpCell.Y + ";" + tmpCell.Value);
                 }
             }
+
+            output.WriteLine("defaultEnds");
 
             while (!CheckCompleteSudoku())
             {
@@ -98,8 +103,10 @@ namespace SudokuSolver
                         if (current.GetPossibleLength() == 1)
                         {
                             current.Value = current.PossibleNums.Single();
+
                             added = current.PossibleNums.Single();
                             valueAdded(tomb[i, j]);
+                            output.WriteLine(tomb[i, j].X + ";" + tomb[i, j].Y + ";" + tomb[i, j].Value);
                         }
                     }
                 }
