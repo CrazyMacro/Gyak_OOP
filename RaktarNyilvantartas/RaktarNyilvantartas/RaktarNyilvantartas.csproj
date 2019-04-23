@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="Aru.cs" />
     <Compile Include="AruTetel.cs" />
+    <Compile Include="BeerkezesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BeerkezesForm.Designer.cs">
+      <DependentUpon>BeerkezesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="RaktarNyilvantartasForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +68,9 @@
     <Compile Include="UjAruForm.Designer.cs">
       <DependentUpon>UjAruForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BeerkezesForm.resx">
+      <DependentUpon>BeerkezesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

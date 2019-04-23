@@ -59,5 +59,12 @@ namespace RaktarNyilvantartas
             }
 
         }
+
+
+        public override String ToString()
+        {
+            return Aru.Nev + Aru.Azon + db + kod;
+        }
     }
+
 }

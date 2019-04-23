@@ -14,6 +14,8 @@ namespace RaktarNyilvantartas
     public partial class RaktarNyilvantartasForm : Form
     {
         List<Aru> aruk = new List<Aru>();
+        List<AruTetel> beerkAruk = new List<AruTetel>();
+
         public RaktarNyilvantartasForm()
         {
             InitializeComponent();
@@ -54,6 +56,12 @@ namespace RaktarNyilvantartas
             }
 
             file.Close();
+        }
+
+        private void beérkezesMenuItem_Click(object sender, EventArgs e)
+        {
+            BeerkezesForm beerkezesForm = new BeerkezesForm(aruk, beerkAruk);
+            beerkezesForm.Show();
         }
     }
 }
