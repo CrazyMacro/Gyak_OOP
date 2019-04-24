@@ -1287,9 +1287,9 @@
             this.LBnemlehet.Location = new System.Drawing.Point(45, 453);
             this.LBnemlehet.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LBnemlehet.Name = "LBnemlehet";
-            this.LBnemlehet.Size = new System.Drawing.Size(134, 13);
+            this.LBnemlehet.Size = new System.Drawing.Size(106, 13);
             this.LBnemlehet.TabIndex = 3;
-            this.LBnemlehet.Text = "ez nem egy ervenyes szam";
+            this.LBnemlehet.Text = "Érvénytelen Sudoku!";
             this.LBnemlehet.Visible = false;
             // 
             // Form1
