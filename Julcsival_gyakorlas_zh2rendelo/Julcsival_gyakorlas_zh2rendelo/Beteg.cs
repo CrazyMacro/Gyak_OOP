@@ -6,11 +6,17 @@ using System.Threading.Tasks;
 
 namespace Julcsival_gyakorlas_zh2rendelo
 {
-    class Beteg
+    public class Beteg
     {
         private int sorszam, tajszam;
 
         public int Sorszam { get => sorszam; set => sorszam = value; }
         public int TajSzam { get => tajszam; set => tajszam = value; }
+
+
+        public override String ToString()
+        {
+            return Sorszam.ToString() + "\t" + TajSzam.ToString();
+        }
     }
 }

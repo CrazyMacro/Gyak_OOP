@@ -6,10 +6,15 @@ using System.Threading.Tasks;
 
 namespace Julcsival_gyakorlas_zh2rendelo
 {
-    class IdopntosBeteg : Beteg
+     public class IdopntosBeteg : Beteg
     {
         private String idopont;
 
         public string Idopont { get => idopont; set => idopont = value; }
+
+        public override String ToString()
+        {
+            return Sorszam.ToString() + "\t" + TajSzam.ToString() + "\t" + Idopont;
+        }
     }
 }
