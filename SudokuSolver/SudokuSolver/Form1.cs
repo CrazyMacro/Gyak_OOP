@@ -16,7 +16,6 @@ namespace SudokuSolver
         public Form1()
         {
             InitializeComponent();
-            //Solver class
             solver = new Solver();
         }
 
@@ -27,13 +26,21 @@ namespace SudokuSolver
 
         private void TB_TextChanged(object sender, EventArgs e)
         {
-
             TextBox tb = (TextBox)sender;
             string s = tb.Name;
-            int x = Convert.ToInt32(s.Substring(2,1));
-            int y = Convert.ToInt32(s.Substring(3,1));
-            Console.WriteLine(tb.Text + "," + x + ", " + y + ", " +tb.Name);
-            Cell c = new Cell(Convert.ToInt32(tb.Text), x, y);
+            int x = Convert.ToInt32(s.Substring(2, 1)) - 1;
+            int y = Convert.ToInt32(s.Substring(3, 1)) - 1;
+            Console.WriteLine(tb.Text + ", " + x + ", " + y + "," + tb.Name);
+            int tmpValue;
+            if (string.IsNullOrWhiteSpace(tb.Text))
+            {
+                tmpValue = 0;
+            }
+            else
+            {
+               tmpValue = Convert.ToInt32(tb.Text);
+            }
+            Cell c = new Cell(tmpValue, x, y);
             if (solver.AddCell(c))
             {
                 this.LBnemlehet.Visible = false;
