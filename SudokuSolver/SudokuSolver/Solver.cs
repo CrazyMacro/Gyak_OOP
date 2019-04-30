@@ -80,13 +80,37 @@ namespace SudokuSolver
 
         public void Solve()
         {
-            StreamWriter output = new StreamWriter("csolve.csv", false);
-            foreach (Cell tmpCell in tomb)
+            foreach (Cell actualCell in tomb)
             {
-                if (tmpCell.Value != 0)
+                for (int i = 1; i < 10; i++)
                 {
-                    valueAdded(tmpCell);
-                    output.WriteLine(tmpCell.X + ";" + tmpCell.Y + ";" + tmpCell.Value);
+                    if (actualCell.Value != i)
+                    {
+                        actualCell.AddPossibleNum(i);
+                    }
+                }
+            }
+
+            foreach (Cell actualCell in tomb)
+            {
+                if (actualCell.Value != 0)
+                {
+                    for (int i = 0; i < 9; i++)
+                    {
+                        tomb[actualCell.X, i].RemovePossibleNum(actualCell.Value);
+                        tomb[i, actualCell.Y].RemovePossibleNum(actualCell.Value);
+                        GetCellsInArea(InArea(actualCell.X, actualCell.Y));
+                    }
+                }
+            }
+
+            StreamWriter output = new StreamWriter("csolve.csv", false);
+            foreach (Cell actualCell in tomb)
+            {
+                if (actualCell.Value != 0)
+                {
+                    valueAdded(actualCell);
+                    output.WriteLine(actualCell.X + ";" + actualCell.Y + ";" + actualCell.Value);
                 }
             }
 
